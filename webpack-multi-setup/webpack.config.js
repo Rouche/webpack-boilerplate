@@ -62,7 +62,6 @@ var config = {
         $: '$'
     },
     plugins: [
-        new CleanWebpackPlugin('dist', {}),
         new MiniCssExtractPlugin({
             filename: '[name].css',
         }),
@@ -75,5 +74,10 @@ var config = {
         new WebpackMd5Hash()
     ]
 };
+
+// Don't destroy dist folder with webpack-serve
+if(!process.env.WEBPACK_SERVE) {
+    config.plugins.unshift(new CleanWebpackPlugin('dist', {}));
+}
 
 module.exports = config;
