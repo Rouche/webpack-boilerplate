@@ -24,7 +24,9 @@ var config = {
     },
     module: {
         rules: [{
+            //test: /^((?!node_modules).)*global\.js$/,
             test: /global\.js$/,
+            exclude: /node_modules/,
             use: [ 'script-loader' ]
         },
         {
