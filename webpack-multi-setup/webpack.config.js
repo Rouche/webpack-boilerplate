@@ -8,6 +8,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 var config = {
+	mode: process.env.WEBPACK_SERVE ? 'development' : process.env.WEBPACK_MODE,
     entry: {
         // Multiple entry
         // js: './src/scripts/index.js',
@@ -33,10 +34,12 @@ var config = {
                     loader: MiniCssExtractPlugin.loader // Extract css
                 },
                 {
-                    loader: 'css-loader' // Convert CSS to CommonJS
+                    loader: 'css-loader', // Convert CSS to CommonJS
+					options: { importLoaders: 2 } 
                 },
                 {
-                    loader: 'postcss-loader' // autoprefixer
+                    loader: 'postcss-loader', // see postcss.config.js
+					options: {}
                 },
                 {
                     loader: 'sass-loader' // Compile to sass

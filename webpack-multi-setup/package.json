@@ -17,11 +17,13 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.15.1",
     "webpack-cli": "^3.0.8",
-    "webpack-md5-hash": "0.0.6"
+    "webpack-md5-hash": "0.0.6",
+    "webpack-serve": "^1.0.4"
   },
   "scripts": {
     "dev": "webpack --config webpack.config.js --mode development --verbose",
-    "prod": "webpack --config webpack.config.js --mode production"
+    "prod": "webpack --config webpack.config.js --mode production",
+    "start": "webpack-serve ./webpack.config.js --content ./src/html --open-path index.html"
   },
   "repository": {
     "type": "git",
