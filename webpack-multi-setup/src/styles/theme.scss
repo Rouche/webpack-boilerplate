@@ -1,0 +1,16 @@
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+
+@import "containers/common";
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+div {
+  color: green;
+}

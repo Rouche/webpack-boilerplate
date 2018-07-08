@@ -1,0 +1,31 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "dependencies": {},
+  "description": "Test multi entries",
+  "main": "webpack.config.js",
+  "devDependencies": {
+    "autoprefixer": "^8.6.5",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.1",
+    "postcss-loader": "^2.1.5",
+    "sass-loader": "^7.0.3",
+    "script-loader": "^0.7.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-md5-hash": "0.0.6"
+  },
+  "scripts": {
+    "dev": "webpack --config webpack.config.js --mode development --verbose",
+    "prod": "webpack --config webpack.config.js --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Rouche",
+  "license": ""
+}
