@@ -6,6 +6,7 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const CompressionPlugin = require("compression-webpack-plugin")
 
 var config = {
 	mode: process.env.WEBPACK_SERVE ? 'development' : process.env.WEBPACK_MODE,
@@ -52,10 +53,6 @@ var config = {
             //     use: {
             //         loader: "babel-loader"
             //     }
-            // },
-            // {
-            //     test: /\.scss$/,
-            //     use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
             // }
         ]
     },
@@ -73,7 +70,14 @@ var config = {
         //     template: './src/index.html',
         //     filename: 'index.html'
         // }),
-        new WebpackMd5Hash()
+        new WebpackMd5Hash(),
+        new CompressionPlugin({
+            asset: '[path].gz[query]',
+            algorithm: 'gzip',
+            test: /\.js$|\.css$|\.html$/,
+            threshold: 100,
+            minRatio: 0.9
+        })
     ]
 };
 
